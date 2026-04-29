@@ -336,43 +336,38 @@ with st.sidebar:
         help="Required for the web search agent.",
     )
 
-    st.markdown("---")
-st.markdown("**Model & Search**")
+    st.markdown("**Model & Search**")
 
 provider = st.selectbox(
     "LLM Provider",
-    options=["OpenAI", "Mistral"],
+    options=["Mistral"],
     index=0,
-    help="Choose which LLM provider your pipeline uses.",
+    help="This project currently uses Mistral AI in agents.py.",
 )
 
-if provider == "OpenAI":
-    model_choice = st.selectbox(
-        "LLM Model",
-        options=["gpt-4o-mini", "gpt-4.1", "gpt-4o", "gpt-3.5-turbo"],
-        index=0,
-    )
-else:
-    model_choice = st.selectbox(
-        "LLM Model",
-        options=["mistral-large-latest", "mistral-small-latest", "open-mistral-7b"],
-        index=0,
-    )
+model_choice = st.selectbox(
+    "LLM Model",
+    options=[
+        "ministral-3b-2512",
+        "ministral-8b-2512",
+        "mistral-small-latest",
+    ],
+    index=0,
+)
 
+max_results = st.slider(
+    "Max Search Results",
+    min_value=3,
+    max_value=10,
+    value=5,
+    step=1,
+    help="Number of web results the search agent fetches.",
+)
 
-    max_results = st.slider(
-        "Max Search Results",
-        min_value=3,
-        max_value=10,
-        value=5,
-        step=1,
-        help="Number of web results the search agent fetches.",
-    )
-
-    # Expose these to the pipeline via env vars
-    os.environ["RESEARCH_MODEL"] = model_choice
-os.environ["RESEARCH_PROVIDER"] = provider  # ← add this
+os.environ["RESEARCH_PROVIDER"] = provider
+os.environ["RESEARCH_MODEL"] = model_choice
 os.environ["RESEARCH_MAX_RESULTS"] = str(max_results)
+
 
 
 st.markdown("---")
