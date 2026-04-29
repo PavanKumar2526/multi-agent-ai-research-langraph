@@ -10,13 +10,13 @@ Try the app instantly — no installation needed:
 
 ## ⚠️ Seeing a Red Error Screen?
 
-<img width="800" alt="error screen" src="https://i.imgur.com/placeholder.png"/>
+<![Project Reference Image](Reference%20image.png)>
 
 > If you open the app and see **red error text** like the screenshot below — **don't panic, the app is working fine.**
 
 ### ✅ What's actually happening
 
-The red screen is **not a bug or a crash.** It simply means no API key has been entered yet. The app requires at least a **Mistral API key** and a **Tavily API key** to run the pipeline.
+The red screen is **not a bug or a crash.** It simply means no API key has been entered yet. Our main agenda is to try it for free, so our first priority is Mistral AI. That’s why we have made it available with free models, The app requires at least a **Mistral API key** and a **Tavily API key** to run the pipeline.
 
 Just add your keys in the sidebar and the error disappears instantly.
 
